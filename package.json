@@ -17,9 +17,12 @@
   },
   "homepage": "https://github.com/athulms1988/whatsappgooglecalender#readme",
   "dependencies": {
+    "async-waterfall": "^0.1.5",
     "body-parser": "^1.19.0",
     "cors": "^2.8.5",
     "express": "^4.17.1",
+    "request": "^2.88.2",
+    "request-promise": "^4.2.5",
     "twilio": "^3.41.1"
   }
 }
