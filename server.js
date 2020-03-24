@@ -109,13 +109,16 @@ app.post('/whatsappwebhook', (req, res) => {
 });
 
 var sendWhatsapp = function(data) {
-    client.messages
-      .create({
+    var whatsappObj = {
         body: 'Hello '+data.name+'! Your booking has been confirmed. Booking number is '+data.confirmation_number+'. If you like to cancel the booking, reply to us ```cancel '+data.email_id+' '+data.confirmation_number+'```',
-        mediaUrl: data.image_url ? [data.image_url]: [],
         from: 'whatsapp:+14155238886',
         to: 'whatsapp:' + data.number
-      })
+    };
+    if(data.image_url && data.image_url.split('.')[data.image_url.split('.').length - 1] != 'gif') {
+        whatsappObj.mediaUrl =  [data.image_url];
+    }
+    client.messages
+      .create(whatsappObj)
       .then(message => console.log(message.sid))
       .done();
 }
