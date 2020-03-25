@@ -112,6 +112,7 @@ var sendWhatsapp = function(data) {
     var whatsappObj = {
         body: 'Hello '+data.name+'! Your booking has been confirmed. Booking number is '+data.confirmation_number+'. If you like to cancel the booking, reply to us ```cancel '+data.email_id+' '+data.confirmation_number+'```',
         from: 'whatsapp:+14155238886',
+        mediaUrl: ['https://assets.autoescape-travel.com/vehicle-images/fox/us/toyota/corolla/icar.jpg'],
         to: 'whatsapp:' + data.number
     };
     if(data.image_url && data.image_url.split('.')[data.image_url.split('.').length - 1] != 'gif') {
